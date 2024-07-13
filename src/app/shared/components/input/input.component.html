@@ -1,0 +1,14 @@
+<ng-container *ngIf="formGroup" [formGroup]="formGroup">
+    <div data-mdb-input-init [ngClass]="['form-outline', containerClass]">
+        <label class="form-label" [for]="name">{{label}}</label>
+        <input 
+            *ngIf = "name"
+            [type]="type" 
+            [id]="id" 
+            [name]="name" 
+            [ngClass]="['form-control', inputClass]"
+            [placeholder]="placeholder"
+            formControlName="{{name}}"
+        />
+    </div>
+</ng-container>

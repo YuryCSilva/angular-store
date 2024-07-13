@@ -1,0 +1,9 @@
+.layout-custom {
+    height: calc(100% - 72px);
+}
+
+@media (max-width: 550px) {
+    .layout-custom {
+        height: 100%
+    }
+}
