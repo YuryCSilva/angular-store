@@ -1,0 +1,6 @@
+<ng-container *ngIf="formGroup" [formGroup]="formGroup">
+    <div [ngClass]="['form-check', containerClass]">
+        <input [ngClass]="['form-check-input', inputClass]" type="checkbox" formControlName="{{name}}" [id]="id" />
+        <label class="form-check-label" [for]="name">{{label}}</label>
+    </div>
+</ng-container>

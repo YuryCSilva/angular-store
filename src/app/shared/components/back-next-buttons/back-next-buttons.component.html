@@ -1,0 +1,4 @@
+<div class="d-flex flex-column-reverse flex-lg-row justify-content-between">
+    <button type="button" (click)="HandleBackClicked()" class="btn btn-secondary btn-lg mb-2" role="button" aria-pressed="true">{{backButtonName}}</button>
+    <button type="button" (click)="HandleNextClicked()" class="btn btn-primary btn-lg mb-2" [ngClass]='{"disabled": nextDisabled}' [disabled]="nextDisabled" role="button" aria-pressed="true">{{nextButtonName}}</button>
+</div>
