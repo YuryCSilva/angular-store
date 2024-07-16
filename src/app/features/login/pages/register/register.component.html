@@ -1,5 +1,7 @@
 <app-template-no-login imgSource="assets/illustrations/sign-in.svg" imgDescription="Pessoa se registrando">
-    <app-form-register />
+    <app-form-register 
+        #formRegister
+    />
     <app-back-next-buttons 
         (backClicked)="handleBackClickEvent($event)"
         (nextClicked)="handleNextClickEvent($event)"

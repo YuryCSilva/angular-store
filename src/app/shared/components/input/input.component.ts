@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -19,4 +19,6 @@ export class InputComponent {
   @Input() containerClass = 'mb-4';
   @Input() inputClass = 'form-control-lg';
   @Input() formGroup!: FormGroup;
+  @Input() error = '';  
+  @Input() isInvalid = false;
 }

@@ -6,9 +6,13 @@
             [type]="type" 
             [id]="id" 
             [name]="name" 
-            [ngClass]="['form-control', inputClass]"
+            class="form-control {{inputClass}}"
+            [ngClass]="{'is-invalid': isInvalid}"
             [placeholder]="placeholder"
             formControlName="{{name}}"
         />
+        <div class="invalid-feedback">
+            {{error}}
+        </div>
     </div>
 </ng-container>
