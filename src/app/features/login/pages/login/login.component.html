@@ -1,22 +1,13 @@
 <app-template-no-login imgSource="assets/illustrations/users-with-bag.svg" imgDescription="Pessoas com bolsas de compra">
-  <form [formGroup]="form">
-    <app-input label="Email" type="email" name="email" id="email" placeholder="Digite seu email"
-      [formGroup]="form"></app-input>
+  <h2 class="mb-4">Login</h2>
 
-    <app-input label="Senha" type="password" id="password" name="password" placeholder="********"
-      [formGroup]="form"></app-input>
+  <app-form-login #formLogin/>  
 
-    <div class="d-flex justify-content-between align-items-center">
-      <!-- Checkbox -->
-      <app-checkbox label="Lembrar-me" id="remember" name="remember" [formGroup]="form"></app-checkbox>
-      <a href="#!" class="text-body">Esqueci minha senha?</a>
-    </div>
-
-    <div class="text-center text-lg-start mt-4 pt-2">
-      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-      <p class="small fw-bold mt-2 pt-1 mb-0">Não tem uma conta? <a routerLink="/registrar" class="link-danger"><span class="pe-auto">registrar</span></a>
-      </p>
-    </div>
-  </form>
+  <app-back-next-buttons 
+    (backClicked)="handleBackClickEvent($event)"
+    (nextClicked)="handleNextClickEvent($event)"
+    [backDisabled]="true"
+    nextButtonName="Login"/>
+    <p class="small fw-bold mt-2 pt-1 mb-0">Não tem uma conta? <a routerLink="/registrar" class="link-danger"><span class="pe-auto">registrar</span></a>
+    </p>
 </app-template-no-login>

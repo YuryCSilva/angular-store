@@ -1,0 +1,15 @@
+<form [formGroup]="form" class="mb-4">
+    <ng-container *ngFor="let control of controlNames">
+        <app-input 
+            [label]="texts.form.labels[control]"
+            [type]="texts.form.types[control]"
+            [name]="texts.form.names[control]" 
+            [id]="texts.form.names[control]"
+            [placeholder]="texts.form.placeholders[control]" 
+            [formGroup]="form"
+            [error]="getErrorMessage(control)"
+            [isInvalid]="isControlInvalid(control)"
+             />
+    </ng-container>
+    <app-checkbox label="Lembrar-me" id="remember" name="remember" [formGroup]="form"></app-checkbox>
+</form>

@@ -14,6 +14,7 @@ export class BackNextButtonsComponent {
   @Input() backButtonName = 'Voltar';
   @Input() nextButtonName = 'Avançar';
   @Input() nextDisabled = false;
+  @Input() backDisabled = false;
 
   HandleBackClicked(){
     this.backClicked.emit();

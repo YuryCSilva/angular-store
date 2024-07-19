@@ -1,8 +1,7 @@
 import { BaseEntity } from "src/app/shared/classes/base-entity.class";
 import { ISanitizeData } from "src/app/types/interfaces/sanitize-data.interface";
 
-export class Register extends BaseEntity<IRegister>{
-    protected name!: string;
+export class Login extends BaseEntity<ILogin> {
     protected email!: string;
     protected password!: string;
 
@@ -14,9 +13,9 @@ export class Register extends BaseEntity<IRegister>{
         if (data) this.mapData(data);
     }
 
-    sanitizeToSend(): any {
+    sanitizeToSend() {
         let output: any = {};
-        const keysToSend = {name: 'name', email: 'email', password: 'password'};
+        const keysToSend = {email: 'email', password: 'password'};
 
         (Object.keys(this) as Array<keyof typeof keysToSend>).forEach((key) => {
             if(!!keysToSend[key] == true) output[keysToSend[key]] = this[key];
@@ -25,15 +24,13 @@ export class Register extends BaseEntity<IRegister>{
         return output;
     }
 
-    initializeAtributes(): void {
-        this.name = '';
+    initializeAtributes() {
         this.email = '';
-        this.password = '';    
+        this.password = '';
     }
 }
 
-interface IRegister {
-    name: string;
+interface ILogin {
     email: string;
     password: string;
 }

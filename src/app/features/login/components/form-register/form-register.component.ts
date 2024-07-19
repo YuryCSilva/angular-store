@@ -1,25 +1,26 @@
 import { Component, inject } from '@angular/core';
 import { LoginTexts } from '../../login-texts';
-import { FormComponent } from 'src/app/shared/components/form/form.component';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IForm } from 'src/types/interfaces/form.interface';
+import { Validations } from 'src/app/shared/classes/validations.class';
+import { Form } from 'src/app/shared/classes/form.class';
 import { InputComponent } from 'src/app/shared/components/input/input.component';
 import { CommonModule } from '@angular/common';
-import { Validations } from 'src/app/shared/classes/validations.class';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-form-register',
   standalone: true,
-  imports: [CommonModule, InputComponent, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, InputComponent],
   templateUrl: './form-register.component.html',
   styleUrl: './form-register.component.scss'
 })
-export class FormRegisterComponent extends FormComponent implements IForm{
+export class FormRegisterComponent extends Form{
   override texts = LoginTexts;
+  toastr = inject(ToastrService);
 
   constructor(private fb: FormBuilder) {
-    super();
+    super(fb);
     this.createForm();
   }
 
@@ -41,12 +42,11 @@ export class FormRegisterComponent extends FormComponent implements IForm{
   save() {
     this.isFormSend = true;
 
-    if(this.formIsInvalid) return;
+    if(this.formIsInvalid){
+      this.toastr.error('Preencha todos os campos corretamente!', 'Ops');
+      return
+    } 
 
     return this.form.getRawValue();
-  }
-
-  get formIsInvalid() {
-    return this.form.invalid;
   }
 }
